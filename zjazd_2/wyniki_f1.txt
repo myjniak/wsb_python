@@ -1,0 +1,5 @@
+Sergio Perez,305
+Max Verstappen,454
+Lewis Hamilton,240
+Charles Leclerc,308
+George Russell,275
