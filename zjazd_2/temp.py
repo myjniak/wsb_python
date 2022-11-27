@@ -1,22 +1,22 @@
-import json
-
-d = {
-    "Michal Szajkowski": {
-        "PESEL": 954238765398,
-        "birth": "12.11.12",
-        "posession": [
-            "TV",
-            "laptop",
-        ]
-    },
-    "Krzysztof X": {
-        "possesion": {
-            "laptop": {
-                "cpu": "intel i7",
-                "ram": 16
-            }
-        }
-    }
+michal = {
+    "imie": "Michal",
+    "nazwisko": "Szajkowski"
 }
 
-print(json.dumps(d, indent=1))
+print(list(michal.values()))
+print(list(michal.keys()))
+print(list(michal.items()))
+
+
+liczba = 1
+liczba += 2
+
+
+lista = [1]
+lista.append(2)
+
+
+slownik = {
+    "pierogi": "lubie"
+}
+slownik[1] = 2

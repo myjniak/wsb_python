@@ -5,7 +5,7 @@ from time import time
 import pygame
 
 screen = pygame.display.set_mode((600, 600))
-pygame.display.set_caption("dupa")
+pygame.display.set_caption("eh")
 
 clock = pygame.time.Clock()
 pygame.init()
