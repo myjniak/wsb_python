@@ -1,3 +1,4 @@
+import datetime
 import json
 
 
@@ -53,6 +54,12 @@ for czlowiek in ludzie:
         czlowiek['plec'] = 'K'
     else:
         czlowiek['plec'] = 'M'
+
+
+# Dopisz do każdej osoby z listy klucz "wiek"
+# wiek (w przybliżeniu) to aktualny rok minus data ur.
+aktualny_rok = datetime.date.today().year
+
 
 
 print(json.dumps(ludzie, indent=4))
