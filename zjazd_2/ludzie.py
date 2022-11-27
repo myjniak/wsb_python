@@ -2,7 +2,7 @@ import datetime
 import json
 
 
-ludzie = [
+ludzie: list[dict[str, any]] = [
     {
         "imie": "Kasia",
         "PESEL": "98110929882",
@@ -59,7 +59,32 @@ for czlowiek in ludzie:
 # Dopisz do każdej osoby z listy klucz "wiek"
 # wiek (w przybliżeniu) to aktualny rok minus data ur.
 aktualny_rok = datetime.date.today().year
-
+for czlowiek in ludzie:
+    wiek = aktualny_rok - int(czlowiek["rok urodzenia"])
+    czlowiek["wiek"] = wiek
 
 
 print(json.dumps(ludzie, indent=4))
+
+#  1: W grupie ludzi X% to mężczyźni.
+ilosc_wszystkich = len(ludzie)
+ilosc_mezczyzn = 0
+for czlowiek in ludzie:
+    if czlowiek["plec"] == "M":
+        ilosc_mezczyzn += 1
+procent_mezczyzn = ilosc_mezczyzn/ilosc_wszystkich * 100
+print(f"W grupie mamy {procent_mezczyzn:.2f}% mezczyzn")
+
+
+#  2: Wszyscy ludzie w grupie są pełnoletni. / nie
+wszyscy_sa_pelnoletni = True
+for czlowiek in ludzie:
+    if czlowiek["wiek"] < 18:
+        wszyscy_sa_pelnoletni = False
+
+# alternatywa
+wszyscy_sa_pelnoletni = all(map(lambda czlowiek: czlowiek["wiek"] >= 18, ludzie))
+if wszyscy_sa_pelnoletni:
+    print("Wszyscy sa pelnoletni")
+else:
+    print("Nie wszyscy sa pelnoletni!")
