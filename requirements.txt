@@ -1,2 +1,5 @@
 pydantic
 requests
+pytest
+pytest-cov
+mock

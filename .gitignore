@@ -1,5 +1,5 @@
 .idea
 __pycache__
 venv/
-
 */playlist_generator/config.json
+.coverage
