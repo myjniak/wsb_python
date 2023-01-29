@@ -5,7 +5,7 @@ import json
 
 import requests
 
-from .models.model import ItemType, SearchResult
+from .models.model import SearchItemType, SearchResult
 
 
 class Spotify:
@@ -43,7 +43,7 @@ class Spotify:
         }
 
     def search(self, q: str, item_type: str = "track") -> SearchResult:
-        ItemType(item_type)
+        SearchItemType(item_type)
         response = requests.get(self._base_url + "/v1/search",
                                 headers=self._headers,
                                 params={

@@ -1,11 +1,15 @@
 from enum import Enum
-from typing import List, Optional, Literal
+from typing import List, Optional
 from pydantic import BaseModel, Field
 
 
-class ItemType(Enum):
+class SearchItemType(Enum):
     track = "track"
     artist = "artist"
+
+
+class ItemType(SearchItemType):
+    album = "album"
 
 
 class ExternalUrls(BaseModel):
@@ -17,7 +21,7 @@ class Artist(BaseModel):
     href: str
     item_id: str = Field(..., alias="id")
     name: str
-    item_type: Literal["track", "artist", "album"] = Field(..., alias="type")
+    item_type: ItemType = Field(..., alias="type")
     uri: str
 
 
@@ -32,7 +36,7 @@ class Album(BaseModel):
     release_date: str
     release_date_precision: str
     total_tracks: int
-    item_type: Literal["track", "artist", "album"] = Field(..., alias="type")
+    item_type: ItemType = Field(..., alias="type")
     uri: str
 
 
@@ -49,7 +53,7 @@ class Item(BaseModel):
     is_local: bool
     name: str
     popularity: int
-    item_type: Literal["track", "artist", "album"] = Field(..., alias="type")
+    item_type: ItemType = Field(..., alias="type")
     uri: str
 
 
