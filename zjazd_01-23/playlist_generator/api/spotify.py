@@ -1,8 +1,11 @@
 from __future__ import annotations
+
 import base64
 import json
+
 import requests
-from typing import Literal
+
+from .models.model import ItemType, SearchResult
 
 
 class Spotify:
@@ -39,14 +42,15 @@ class Spotify:
             "Authorization": f"Bearer {token}"
         }
 
-    def search(self, q: str, item_type: list[Literal['track', 'artist']]):
+    def search(self, q: str, item_type: str = "track") -> SearchResult:
+        ItemType(item_type)
         response = requests.get(self._base_url + "/v1/search",
                                 headers=self._headers,
                                 params={
                                     "q": q,
-                                    "type": ",".join(item_type)
+                                    "type": item_type
                                 })
-        return response.json()
+        return SearchResult(**response.json())
 
     def get_tracks_audio_features(self, track_id: str):
         response = requests.get(self._base_url + f"/v1/audio-features/{track_id}",
