@@ -1,0 +1,5 @@
+[tool.pylint]
+disable = [
+    "missing-module-docstring"
+]
+extension-pkg-whitelist="pydantic"

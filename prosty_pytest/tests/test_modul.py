@@ -1,5 +1,5 @@
 import pytest
-from src.modul import divide
+from prosty_pytest.src.modul import divide
 
 
 @pytest.mark.parametrize(

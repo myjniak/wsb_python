@@ -3,3 +3,8 @@ requests
 pytest
 pytest-cov
 mock
+click
+mypy
+pylint
+types-requests
+flake8
