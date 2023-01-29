@@ -8,8 +8,10 @@ class SearchItemType(Enum):
     artist = "artist"
 
 
-class ItemType(SearchItemType):
+class ItemType(Enum):
     album = "album"
+    track = "track"
+    artist = "artist"
 
 
 class ExternalUrls(BaseModel):
