@@ -26,9 +26,9 @@ def take_until_1(it):
             break
 
 
-def collatz_conjecture(starting_number: int):
-    """https://en.wikipedia.org/wiki/Collatz_conjecture
+def collatz_conjecture(starting_number: int) -> list[int]:
+    """
+    https://en.wikipedia.org/wiki/Collatz_conjecture
     https://www.youtube.com/watch?v=094y1Z2wpJg
     """
     return [n for n in take_until_1(iterate(collatz_iter, starting_number))]
-
