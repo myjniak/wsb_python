@@ -7,21 +7,25 @@
 import random
 
 
-def lottery() -> int:
-    return random.randint(1, 3)
+class Game:
 
+    def __init__(self, door_count=3):
+        self.door_count = door_count
+        self.__winning_door = random.randint(1, door_count)
 
-def first_guess(door: int) -> int:
-    lista = [1, 2, 3]
-    print(f'Choose number from list: {lista}')
-    winning_gate = 1
-    lista.remove(door)
-    if winning_gate in lista:
-        lista.remove(winning_gate)
-    revealed_empty_door = random.choice(lista)
-    print(f"Zygmunt opens door number {revealed_empty_door} to show there is nothing there!")
-    return revealed_empty_door
+    def first_guess(self, door: int) -> int:
+        doors = list(range(1, self.door_count + 1))
+        doors.remove(door)
+        if self.__winning_door in doors:
+            doors.remove(self.__winning_door)
+        revealed_empty_door = random.choice(doors)
+        print(f"Zygmunt opens door number {revealed_empty_door} to show there is nothing there!")
+        return revealed_empty_door
 
-
-for i in range(100):
-    empty_door = first_guess(1)
+    def final_guess(self, door: int) -> bool:
+        if door == self.__winning_door:
+            print("YOU WON")
+            return True
+        else:
+            print("YOU LOST")
+            return False
