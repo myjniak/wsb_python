@@ -24,10 +24,10 @@ print("Testing 'choose the other door' strategy")
 won_games = 0
 for i in range(game_count):
     game = Game()
-    empty_door = game.first_guess(1)
+    empty_doors = game.first_guess(1)
     doors = list(range(1, game.door_count + 1))
     doors.remove(1)
-    doors.remove(empty_door)
+    # doors.remove(empty_door)  usuń empty_doors z doors ????
     game_won = game.final_guess(doors[0])
     won_games += game_won
 print(f"Win rate = {won_games}/{game_count}")
