@@ -3,3 +3,4 @@ __pycache__
 venv/
 playlist_generator/config.json
 .coverage
+log.txt

@@ -1,4 +1,11 @@
+import logging
+
+from monty_hall import logger
 from monty_hall.game import Game
+
+logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler("log.txt")
+logger.addHandler(file_handler)
 
 
 game_count = 1000
