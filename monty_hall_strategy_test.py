@@ -1,7 +1,7 @@
 import logging
 
 from monty_hall import logger
-from monty_hall.game import Game
+from monty_hall.game import Game, Status
 
 logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler("log.txt")
@@ -28,6 +28,7 @@ for i in range(game_count):
     empty_doors.append(1)
     doors = list(range(1, game.door_count + 1))
     final_door = (set(doors) - set(empty_doors)).pop()
-    game_won = game.final_guess(final_door)
-    won_games += game_won
+    game.final_guess(final_door)
+    if game.status == Status.WON:
+        won_games += 1
 print(f"Win rate = {won_games}/{game_count}")
